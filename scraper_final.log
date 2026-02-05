@@ -1,0 +1,34 @@
+2026-02-05 17:31:52,895 - INFO - ======================================================================
+2026-02-05 17:31:52,895 - INFO - TRUCK MARKET SCRAPER V2
+2026-02-05 17:31:52,895 - INFO - ======================================================================
+2026-02-05 17:31:52,942 - INFO - Database initialized from schema.sql
+2026-02-05 17:31:52,943 - INFO - === PHASE 1: General Truck Search ===
+2026-02-05 17:31:52,943 - INFO -   Searching detroit for Truck...
+2026-02-05 17:31:54,579 - INFO -   Found 70 total, 5 new after filtering
+2026-02-05 17:31:54,579 - INFO -     Fetching detail: 2021 CHEVROLET SILVERADO 1500 Work Truck4WD...
+2026-02-05 17:31:57,014 - INFO -     Fetching detail: 2023 Chevrolet Silverado 1500 - 47,000 Miles - 12 Months war...
+2026-02-05 17:31:59,235 - INFO -     Fetching detail: 2020 Chevrolet Colorado WT 4WD V6...
+2026-02-05 17:32:01,524 - INFO -     Fetching detail: 2021 CHEVY SILVERADO 4DRS 4X4 SCHUSTER A S 7444 FREMONT PIKE...
+2026-02-05 17:32:03,945 - INFO -     Fetching detail: 2022 Chevrolet Colorado Ext. Cab - 53K MILES - 12 MONTHS WAR...
+/opt/openclaw/.openclaw/workspace/truck-market/scraper_v2.py:164: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+  now = datetime.utcnow().isoformat()
+Traceback (most recent call last):
+  File "/opt/openclaw/.openclaw/workspace/truck-market/scraper_v2.py", line 832, in <module>
+    main()
+    ~~~~^^
+  File "/opt/openclaw/.openclaw/workspace/truck-market/scraper_v2.py", line 754, in main
+    listings = scraper.scrape_all(db=db)
+  File "/opt/openclaw/.openclaw/workspace/truck-market/scraper_v2.py", line 633, in scrape_all
+    if db.insert_listing(listing):
+       ~~~~~~~~~~~~~~~~~^^^^^^^^^
+  File "/opt/openclaw/.openclaw/workspace/truck-market/scraper_v2.py", line 212, in insert_listing
+    cursor.execute("""
+    ~~~~~~~~~~~~~~^^^^
+        INSERT INTO listings (
+        ^^^^^^^^^^^^^^^^^^^^^^
+    ...<16 lines>...
+        price_per_mile, now, now, 'active', 1, now
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ))
+    ^^
+sqlite3.OperationalError: table listings has no column named post_id
